@@ -4,7 +4,7 @@ export interface Product {
   title: string;
   images: string[];
   material: string[];
-  maintenance: { title: string; text: string;}[];
+  maintenance: { title: string; text: string }[];
   description: string;
   quantity: number;
   category: string;
