@@ -1,19 +1,53 @@
 {
-  "posts": [
+  "products": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "price": 13,
+      "title": "Copper Spiral & White Beads Earrings",
+      "images": [
+        "/images/Jewelry-Page-Earrings/earrings 1.jpg",
+        "/images/Jewelry-Page-Earrings/earrings 1.jpg",
+        "/images/Jewelry-Page-Earrings/earrings 1.jpg",
+        "/images/Jewelry-Page-Earrings/earrings 1.jpg"
+      ],
+      "material": ["copper", "brass", "pearl"],
+      "description": "Blending modern style with classic elegance, we introduce our Copper Spiral and White Beads Earrings. Crafted with precision, these earrings feature gracefully coiled copper spirals, adding a touch of contemporary flair. The pristine white beads suspended within the spirals bring a clean and timeless aesthetic to the design. Elevate your look with this understated yet captivating accessory, perfect for both casual and formal occasions.",
+      "quantity": 2,
+      "category": "jewelry",
+      "type": "earrings",
+      "date": "24.05.2022",
+      "dimensions": "24x36",
+      "maintenance": [
+        {
+          "title": "Regular Dusting",
+          "text": "Wipe with a soft, lint-free cloth to prevent buildup."
+        },
+        {
+          "title": "Regular Dusting",
+          "text": "Wipe with a soft, lint-free cloth to prevent buildup."
+        },
+        {
+          "title": "Regular Dusting",
+          "text": "Wipe with a soft, lint-free cloth to prevent buildup."
+        },
+        {
+          "title": "Regular Dusting",
+          "text": "Wipe with a soft, lint-free cloth to prevent buildup."
+        },
+        {
+          "title": "Regular Dusting",
+          "text": "Wipe with a soft, lint-free cloth to prevent buildup."
+        },
+        {
+          "title": "Regular Dusting",
+          "text": "Wipe with a soft, lint-free cloth to prevent buildup."
+        }
+      ],
+
+      "weight": 15,
+      "isDiscounting": true,
+      "isFavorite": false,
+      "isAddedToCard": false
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }
