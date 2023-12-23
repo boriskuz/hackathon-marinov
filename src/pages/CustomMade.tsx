@@ -24,6 +24,12 @@ const CustomMade = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setCustomOrders([...customOrders, formData]);
+    setFormData({
+      name: '',
+      email: '',
+      message: '',
+      uploadUrl: '',
+    });
   };
 
   return (
@@ -49,19 +55,37 @@ const CustomMade = () => {
               <label className="form-label" htmlFor="name">
                 Name <span>(optional)</span>
               </label>
-              <input className="form-control " type="text" name="name" id="name" placeholder="Your name here..." onChange={handleChange} />
+              <input className="form-control" value={formData.name} type="text" name="name" id="name" placeholder="Your name here..." onChange={handleChange} />
             </div>
             <div className="mb-3">
               <label className="form-label" htmlFor="email">
                 Email <span>(required)</span>
               </label>
-              <input className="form-control" type="email" name="email" id="email" placeholder="Your email address here..." required onChange={handleChange} />
+              <input
+                className="form-control"
+                type="email"
+                value={formData.email}
+                name="email"
+                id="email"
+                placeholder="Your email address here..."
+                required
+                onChange={handleChange}
+              />
             </div>
             <div className="mb-3">
               <label className="form-label" htmlFor="message">
                 Message <span>(required)</span>
               </label>
-              <textarea className="form-control" name="message" id="message" rows={10} placeholder="Your message here..." required onChange={handleChange}></textarea>
+              <textarea
+                value={formData.message}
+                className="form-control"
+                name="message"
+                id="message"
+                rows={10}
+                placeholder="Your message here..."
+                required
+                onChange={handleChange}
+              ></textarea>
             </div>
             <div className="mb-5">
               <label className="form-label" htmlFor="uploadImg">
@@ -78,7 +102,15 @@ const CustomMade = () => {
               <label className="form-label" htmlFor="uploadUrl">
                 Send Link <span>(optional)</span>
               </label>
-              <input className="form-control " type="text" name="uploadUrl" id="uploadUrl" placeholder="https://www.example.com" onChange={handleChange} />
+              <input
+                className="form-control "
+                value={formData.uploadUrl}
+                type="text"
+                name="uploadUrl"
+                id="uploadUrl"
+                placeholder="https://www.example.com"
+                onChange={handleChange}
+              />
             </div>
 
             <p className="mb-4">
