@@ -5,6 +5,7 @@ export interface Product {
   isFeatured: boolean;
   title: string;
   images: string[];
+  imageUrl: string;
   material: string[];
   maintenance: { title: string; text: string }[];
   description: string;
@@ -17,6 +18,15 @@ export interface Product {
   isDiscounting: boolean;
   isFavorite: boolean;
   isAddedToCard: boolean;
+}
+export interface CardType {
+  product: {
+    id: number;
+    imageUrl: string;
+    title: string;
+    price: number;
+    images: string[];
+  };
 }
 
 export interface ClientComment {
