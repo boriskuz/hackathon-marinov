@@ -1,0 +1,72 @@
+.story-text {
+    /* $font-family-primary: 'Cabinet Grotesk', sans-serif;
+    font-size-biggest: rem-calc(45); */
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-size: xx-large;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56px;
+    letter-spacing: 0em;
+}
+
+.story-text-small {
+    font-family: 'Cabinet Grotesk', sans-serif;
+    font-size: small;    
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 38px;
+    letter-spacing: 0em;
+}
+
+.story-top {
+    position: absolute;
+    top: 750px;
+    color: #FBFAF8;
+    padding-right: 20%;
+}
+.story-bottom {
+    position: absolute;
+    top: 1620px;
+    color: #FBFAF8; 
+    text-align: right;
+    padding-left: 15%;
+}
+.cooper {
+    position: absolute;
+    width: 272px;
+    height: 350px;
+    top: 250px;
+    left: 56%;
+    rotate: -36.77deg;
+    z-index: 9999999998;
+}  
+.story-img {
+    width: 736.06px;
+    height: 424px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../../public/images/OurStoryPage/Ohrid_razglednica_1913.png');
+    position: absolute;
+    top: 45%;
+}
+.story-img::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: 0px 44px 48px 0px #1C1A1B80;
+    box-shadow: 0px 14px 16px 0px #1C1A1B66;
+}
+
+.story-img-bg {
+    width: 375px;
+    height: 1600px;
+    top: 631px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../../public/images/OurStoryPage/copper aging.jpg');
+}

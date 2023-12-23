@@ -10,6 +10,7 @@ import ProductPage from './components/product-page/ProductPage';
 import ProductPageOne from './components/product-page/ProductPageOne';
 import ProductDetailPage from './components/product-page/ProductDetailPage';
 import Header from './components/Header';
+import OurStoryPage from './pages/our-story';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/our-story" element={<OurStoryPage />} />
         <Route path="/product-page" element={<ProductPage />} />
         <Route path="/product-detail-page/:id" element={<ProductDetailPage />} />
         <Route path="/product-page-home-decor" element={<ProductPageOne />} />

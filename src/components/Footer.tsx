@@ -14,9 +14,9 @@ const Footer: React.FC = () => {
 			</div>
 			  <div className="d-flex flex-column">
 			   <div className="col-11 mx-3">
-				<img src="../../public/images/Home-Page/logotype.svg" alt="logotype" className="mt-4 mb-5 w-50" />
+				<Link to={"/"}><img src="../../public/images/Home-Page/logotype.svg" alt="logotype" className="mt-4 mb-5 w-50" /></Link>
 				<div className="d-flex flex-row justify-content-between mb-3">
-					<h3 className="text-uppercase font-weight-bold">jewelry</h3>
+					<Link to={"/"}><h3 className="text-uppercase font-weight-bold">jewelry</h3></Link>
 					<h3>EN / MK</h3>
 				</div>
 				<div className="col-12 mr-auto ml-auto">
@@ -31,13 +31,13 @@ const Footer: React.FC = () => {
 				</div>
 
 				<div className="d-flex flex-column justify-content-start my-3">
-					<h3 className="text-uppercase font-weight-bold mb-3">home decor</h3>
+					<Link to={"/"}><h3 className="text-uppercase font-weight-bold mb-3">home decor</h3></Link>
 					<Link to={"/"}>Helmets</Link>
 					<Link to={"/"}>Other</Link>					
 				</div>
 				<div className="text-uppercase">
 					<Link to={"/"}><h3 className="font-weight-bold mb-3">custom orders</h3></Link>
-					<Link to={"/"}><h3 className="font-weight-bold mb-3">our story</h3></Link>
+					<Link to={"/our-story"}><h3 className="font-weight-bold mb-3">our story</h3></Link>
 					<Link to={"/"}><h3 className="font-weight-bold mb-3">faq</h3></Link>
 					<Link to={"/"}><h3 className="font-weight-bold mb-3">contact</h3></Link>
 					<Link to={"/"}><h3 className="font-weight-bold">profile</h3></Link>
@@ -46,13 +46,13 @@ const Footer: React.FC = () => {
 				  <div className="col-12 mr-auto ml-auto">
 					<div className="d-flex flex-row mb-5">
 						<div className="col-3 social-icons">
-							<img src="../../public/images/Icons/instagram.svg" alt="icon-instagram"/>
+						<Link to={"https://www.instagram.com/marinovdesign/?igshid=MzRlODBiNWFlZA%3D%3D"}><img src="../../public/images/Icons/instagram.svg" alt="icon-instagram"/></Link>
 						</div>
 						<div className="col-3 social-icons">
-							<img src="../../public/images/Icons/facebook.svg" alt="icon-facebook" />
+						<Link to={"https://www.facebook.com/marinovworkshop"}><img src="../../public/images/Icons/facebook.svg" alt="icon-facebook" /></Link>
 						</div>
 						<div className="col-3 social-icons">
-							<img src="../../public/images/Icons/whatsapp.svg" alt="icon-whatsapp" />
+						<Link to={""}><img src="../../public/images/Icons/whatsapp.svg" alt="icon-whatsapp" /></Link>
 						</div>
 					</div>
 					<p>Privacy Policy</p>
