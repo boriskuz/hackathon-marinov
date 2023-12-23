@@ -1,54 +1,68 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import "../styles/components/_footer.scss"
+
 
 const Footer: React.FC = () => {
 
- 
   return (
     <footer>
-	<div className="container-fluid footer">
-		<div className="row d-flex flex-wrap flex-column">
-			{/* <p className="m-0">Следи ги нашите новости!</p>
-			<div className="col-11 mr-auto ml-auto">
-				<div className="footer-text">
-			    <p className="mb-4">Биди дел од нашиот newsletter и дознавај прва за промоции, попусти и нови колекции.</p>
-					<label htmlFor="username">Email адреса:</label>
-					<input type="email" id="username" className="PrimaryBtn mb-3 text-left pl-3 w-100" style={{fontWeight: "lighter", height: "50px"}} placeholder="" onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-						// setUsername(event.target.value);
-						}}/>
-					<Link href={"/register"}>
-						<button title="Зачлени се!" btnClass={"PrimaryBtn w-100 btn-gold btn-gold-text"} backgroundColor={"btn-gold"} color='black' border='none' height="51px"/></Link>
+		<div className="container-fluid footer">
+		  <div className="row d-flex flex-column">
+			<div className="footer-img">
+			   <img src="../../public/images/Home-Page/logomark L.svg" alt="logo L" />
+			</div>
+			  <div className="d-flex flex-column">
+			   <div className="col-11 mx-3">
+				<img src="../../public/images/Home-Page/logotype.svg" alt="logotype" className="mt-4 mb-5 w-50" />
+				<div className="d-flex flex-row justify-content-between mb-3">
+					<h3 className="text-uppercase font-weight-bold">jewelry</h3>
+					<h3>EN / MK</h3>
 				</div>
-			    <hr className="w-100 my-5 border border-dark"/>
-				<div className="row d-flex flex-wrap flex-column justify-content-left">
-					<div className="col-12 mr-auto ml-auto">
-						<Link href={"/about"} className="footer-link">За нас</Link>
-						<Link href={"/contact"} className="footer-link">Контакт</Link>
-						<Link href={"https://maps.app.goo.gl/c6RUfhjcp3Eyehz26"} className="footer-link">Локатор на продавницата</Link>
-						<Link href={"/faq"} className="footer-link">Често поставувани прашања (FAQ)</Link>
-						<Link href={"/login"} className="footer-link">Регистрирај се / логирај се</Link>
-					</div>
-					<div className="col-12 text-left mt-4">
-					<h3 className="color-olive mb-3" style={{fontSize: '20px', fontStyle: 'italic'}}>Следи не на:</h3>
-					  <div className="row d-flex flex-column footer-link">
-						<div className="col-12">
-						<Link href={"https://www.instagram.com/igraliste.sk/"} className="link">
-							<div className="d-flex flex-row justify-content-start align-items-center align-self-center mb-2">
-								<img src="../pictures/icons/instagram.png" alt="instagram"className="mr-3" />
-								<p className="align-self-center m-0">igralishte.sk</p>
-							</div>
-							</Link>
-							<Link href={"https://www.tiktok.com/@igraliste.sk?lang=en"} className="link">
-							<div className="d-flex flex-row justify-content-start align-items-center align-self-center mb-5">
-								<img src="../pictures/icons/tik-tok.png" className="mr-3" alt="tik-tok" />
-								<p className="align-self-center m-0">igralishte.sk</p>
-							</div>
-						</Link>
-						<p style={{fontSize: '12px'}}>Сите права задржани © 2023 igralishtesk.mk</p>
+				<div className="col-12 mr-auto ml-auto">
+				<div className="d-flex flex-column justify-content-start">
+					<Link to={"/"}>Earrings</Link>
+					<Link to={"/"}>Rings</Link>
+					<Link to={"/"}>Necklaces</Link>
+					<Link to={"/"}>Bracelets</Link>
+					<Link to={"/"}>Sets</Link>
+					<Link to={"/"}>Other</Link>					
+				</div>
+				</div>
+
+				<div className="d-flex flex-column justify-content-start my-3">
+					<h3 className="text-uppercase font-weight-bold mb-3">home decor</h3>
+					<Link to={"/"}>Helmets</Link>
+					<Link to={"/"}>Other</Link>					
+				</div>
+				<div className="text-uppercase">
+					<Link to={"/"}><h3 className="font-weight-bold mb-3">custom orders</h3></Link>
+					<Link to={"/"}><h3 className="font-weight-bold mb-3">our story</h3></Link>
+					<Link to={"/"}><h3 className="font-weight-bold mb-3">faq</h3></Link>
+					<Link to={"/"}><h3 className="font-weight-bold mb-3">contact</h3></Link>
+					<Link to={"/"}><h3 className="font-weight-bold">profile</h3></Link>
+				</div>
+				<div className="d-flex flex-column justify-content-start my-5">
+				  <div className="col-12 mr-auto ml-auto">
+					<div className="d-flex flex-row mb-5">
+						<div className="col-3 social-icons">
+							<img src="../../public/images/Icons/instagram.svg" alt="icon-instagram"/>
 						</div>
-					  </div>
-					</div> 
+						<div className="col-3 social-icons">
+							<img src="../../public/images/Icons/facebook.svg" alt="icon-facebook" />
+						</div>
+						<div className="col-3 social-icons">
+							<img src="../../public/images/Icons/whatsapp.svg" alt="icon-whatsapp" />
+						</div>
+					</div>
+					<p>Privacy Policy</p>
+					<p>Terms & Conditions</p>
+					<p>Shipping and Returns Policy</p>
+					<p className="allRights small mt-5">© Marinov Design 2023 - All Rights Reserved.</p>
+				  </div>
 				</div>
-			</div> */}
+			</div>
+	  	  </div>
 		</div>
 	  </div>
 	</footer>
