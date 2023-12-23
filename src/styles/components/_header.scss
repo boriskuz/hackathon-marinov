@@ -5,6 +5,11 @@
 .navbar {
   background-color: var.$white-color !important;
 
+  .header-title {
+    font-family: var.$font-family-primary;
+    font-size: 32px;
+  }
+
   .spacing {
     padding-left: 16px;
     padding-right: 16px;

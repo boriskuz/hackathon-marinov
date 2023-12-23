@@ -4,20 +4,24 @@
 
 body {
   background-color: var.$white-color;
-  // font-family: var.$font-family-base;
+  font-family: var.$font-family-base;
   // font-weight: var.$font-weight-normal;
   // line-height: var.$line-height-base;
-  // color: var.$brown-color !important;
+  color: var.$brown-color !important;
 }
 
-// h1,
-// h2,
-// h3 {
-//   margin-top: math.div(var.$gutter-base, 2.5);
-//   margin-bottom: math.div(var.$gutter-base, 2.5);
-//   font-weight: var.$font-weight-normal;
-//   font-family: var.$font-family-primary;
-// }
+a {
+  color: var.$brown-color !important;
+}
+
+h1,
+h2,
+h3 {
+  // margin-top: math.div(var.$gutter-base, 2.5);
+  // margin-bottom: math.div(var.$gutter-base, 2.5);
+  font-weight: var.$font-weight-normal;
+  font-family: var.$font-family-primary;
+}
 
 // h1 {
 //   font-size: var.$font-size-biggest;

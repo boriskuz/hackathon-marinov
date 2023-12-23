@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <div className="container-fluid spacing">
         <button
-          className="navbar-toggler"
+          className="navbar-toggler px-0 color-brown"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -15,10 +15,11 @@ const Header = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <a className="navbar-brand text-uppercase" href="#">
+        <Link to="/" className="navbar-brand text-uppercase header-title">
           Marinov
-        </a>
-        <i className="fa-solid fa-cart-shopping"></i>
+        </Link>
+
+        <i className="fa-solid fa-cart-shopping fs-5"></i>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 mt-3">

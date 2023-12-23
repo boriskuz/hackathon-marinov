@@ -89,12 +89,12 @@
   color: $color;
 }
 
-@mixin primary-button($bg-color: var.$secondary-color, $color: var.$primary-color) {
+@mixin primary-button($bg-color: var.$white-color, $color: var.$orange-color) {
   color: $color;
-  font-size: 12px;
-  padding: 4px 14px;
+  font-size: 16px;
+  padding: 12px 24px 12px 24px;
   font-weight: 700;
-  border: none;
-  border-radius: 2px;
+  border: 2px solid $color;
+  border-radius: 16px 0 16px 0;
   background-color: $bg-color;
 }
