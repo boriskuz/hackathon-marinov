@@ -9,15 +9,12 @@ import Footer from './components/Footer';
 import ProductPage from './components/product-page/ProductPage';
 import ProductPageOne from './components/product-page/ProductPageOne';
 import ProductDetailPage from './components/product-page/ProductDetailPage';
+import Header from './components/Header';
 
 function App() {
   return (
     <ProductContextConstructor>
-      <div style={{ maxWidth: 375, margin: 'auto' }}>
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-        </Routes>
-      </div>
+      <Header />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/product-page" element={<ProductPage />} />

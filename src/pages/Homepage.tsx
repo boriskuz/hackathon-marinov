@@ -1,11 +1,11 @@
-import Header from '../components/Header';
+
 import HomepageCard from '../components/HomepageCard';
 import Testimonial from '../components/Testimonial';
 
 const Homepage = () => {
   return (
     <>
-      <Header />
+      
       <div className="container-fluid">
         <div className="row mt-5 overflow-hidden">
           <div className="col">

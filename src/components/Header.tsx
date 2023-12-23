@@ -29,12 +29,12 @@ const Header = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/jewelry" className="nav-link ">
+              <Link to="/product-page" className="nav-link ">
                 Jewelry
               </Link>
             </li>
             <li className="nav-item ">
-              <Link to="/home-decor" className="nav-link ">
+              <Link to="/product-page-home-decor" className="nav-link ">
                 Home Decor
               </Link>
             </li>
