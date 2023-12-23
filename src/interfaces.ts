@@ -1,6 +1,8 @@
 export interface Product {
   id: number;
   price: number;
+  salePrice: number;
+  isFeatured: boolean;
   title: string;
   images: string[];
   material: string[];
@@ -9,11 +11,17 @@ export interface Product {
   quantity: number;
   category: string;
   type: string;
-  isNew: boolean;
   date: string;
-  weight: number;
+  weight: string;
   dimensions: string;
   isDiscounting: boolean;
   isFavorite: boolean;
   isAddedToCard: boolean;
+}
+
+export interface ClientComment {
+  id: number;
+  name: string;
+  country: string;
+  text: string;
 }
