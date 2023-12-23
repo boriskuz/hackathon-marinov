@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import ExampleAnimation from "./components/ExampleAnimation";
 import ProductContextConstructor from "./contexts/useProductDataContext";
 import "./styles/main.scss";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </ProductContextConstructor>
   );
 }
