@@ -12,6 +12,7 @@ import ProductPageOne from './components/product-page/ProductPageOne';
 import ProductDetailPage from './components/product-page/ProductDetailPage';
 import Header from './components/Header';
 import Faq from './pages/Faq';
+import CustomMade from './pages/CustomMade';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/product-page-home-decor" element={<ProductPageOne />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/faq" element={<Faq />} />
+        <Route path="/custom-orders" element={<CustomMade />} />
       </Routes>
       <Footer />
     </ProductContextConstructor>
