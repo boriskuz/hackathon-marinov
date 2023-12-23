@@ -19,6 +19,8 @@ h2,
 h3 {
   // margin-top: math.div(var.$gutter-base, 2.5);
   // margin-bottom: math.div(var.$gutter-base, 2.5);
+  // color: var.$brown-color !important;
+
   font-weight: var.$font-weight-normal;
   font-family: var.$font-family-primary;
 }
@@ -38,5 +40,5 @@ h3 {
 // }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
