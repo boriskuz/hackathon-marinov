@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import ProductContextConstructor from './contexts/useProductDataContext';
 import './styles/main.scss';
 import Homepage from './pages/Homepage';
+import Cart from "./components/cart-page/Cart";
 
 import './styles/main.scss';
 import Footer from './components/Footer';
@@ -20,6 +21,7 @@ function App() {
         <Route path="/product-page" element={<ProductPage />} />
         <Route path="/product-detail-page/:id" element={<ProductDetailPage />} />
         <Route path="/product-page-home-decor" element={<ProductPageOne />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
     </ProductContextConstructor>
