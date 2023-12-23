@@ -10,6 +10,7 @@ import ProductPage from './components/product-page/ProductPage';
 import ProductPageOne from './components/product-page/ProductPageOne';
 import ProductDetailPage from './components/product-page/ProductDetailPage';
 import Header from './components/Header';
+import Faq from './pages/FAQ';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/product-page" element={<ProductPage />} />
         <Route path="/product-detail-page/:id" element={<ProductDetailPage />} />
         <Route path="/product-page-home-decor" element={<ProductPageOne />} />
+        <Route path="/faq" element={<Faq />} />
       </Routes>
       <Footer />
     </ProductContextConstructor>
