@@ -1,13 +1,14 @@
-// @use '../abstracts/mixins' as mix;
-// @use '../abstracts/variables' as var;
-// @use 'sass:math';
+@use '../abstracts/mixins' as mix;
+@use '../abstracts/variables' as var;
+@use 'sass:math';
 
-// body {
-//   font-family: var.$font-family-base;
-//   font-weight: var.$font-weight-normal;
-//   line-height: var.$line-height-base;
-//   color: var.$secondary-color;
-// }
+body {
+  background-color: var.$white-color;
+  // font-family: var.$font-family-base;
+  // font-weight: var.$font-weight-normal;
+  // line-height: var.$line-height-base;
+  // color: var.$brown-color !important;
+}
 
 // h1,
 // h2,

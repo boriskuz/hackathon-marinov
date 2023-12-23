@@ -1,15 +1,16 @@
-import ExampleAnimation from "./components/ExampleAnimation";
-import ProductContextConstructor from "./contexts/useProductDataContext";
-import "./styles/main.scss";
+import { Route, Routes } from 'react-router-dom';
+
+import ProductContextConstructor from './contexts/useProductDataContext';
+import './styles/main.scss';
+import Homepage from './pages/Homepage';
 
 function App() {
-  
-
   return (
     <ProductContextConstructor>
-      <div style={{ height: 600, width: 600 }}>
-       
-        <ExampleAnimation path="../public/animations/bracelet_animation.json" />
+      <div style={{ maxWidth: 375, margin: 'auto' }}>
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+        </Routes>
       </div>
     </ProductContextConstructor>
   );

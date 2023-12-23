@@ -1,0 +1,19 @@
+@use '../abstracts/mixins' as mix;
+@use '../abstracts/variables' as var;
+@use 'sass:math';
+
+.navbar {
+  background-color: var.$white-color !important;
+
+  .spacing {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  &-toggler {
+    border: none;
+  }
+  &-toggler:focus {
+    box-shadow: none;
+  }
+}
