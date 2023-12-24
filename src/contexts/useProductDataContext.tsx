@@ -1,6 +1,6 @@
-import React, { createContext, useState } from "react";
-import useFetch from "../custom-hooks/useFetch";
-import { Product } from "../interfaces";
+import React, { createContext, useState } from 'react';
+import useFetch from '../custom-hooks/useFetch';
+import { Product } from '../interfaces';
 
 interface FormData {
   name: string;
@@ -32,12 +32,12 @@ export const ProductContext = createContext<ProductType>({
   selectedQuantity: 1,
   setSelectedQuantity: () => {},
   formData: {
-    name: "",
-    email: "",
-    country: "",
-    postalCode: "",
-    city: "",
-    address: "",
+    name: '',
+    email: '',
+    country: '',
+    postalCode: '',
+    city: '',
+    address: '',
   },
   setFormData: () => {},
   totalPrice: 0,
@@ -49,26 +49,20 @@ interface Props {
 }
 
 const ProductContextConstructor: React.FC<Props> = ({ children }) => {
-  const { data, isLoading, error } = useFetch<Product[]>(
-    "http://localhost:5001/products"
-  );
+  const { data, isLoading, error } = useFetch<Product[]>('http://localhost:5001/products');
   const [dataState, setData] = React.useState<Product[] | null>(data);
 
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState<number>(0);
 
-  console.log(totalPrice);
-
   const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    country: "",
-    postalCode: "",
-    city: "",
-    address: "",
+    name: '',
+    email: '',
+    country: '',
+    postalCode: '',
+    city: '',
+    address: '',
   });
-
-  console.log(formData);
 
   React.useEffect(() => {
     setData(data);
