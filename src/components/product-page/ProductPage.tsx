@@ -1,18 +1,20 @@
-import React, { useContext, useState, useEffect, useMemo } from 'react';
-import Card from './sub-components/Card';
-import { ProductContext } from '../../contexts/useProductDataContext';
-import bannerImg from '../../images/Rectangle 61.png';
+import React, { useContext, useState, useEffect, useMemo } from "react";
+import Card from "./sub-components/Card";
+import { ProductContext } from "../../contexts/useProductDataContext";
+import bannerImg from "../../images/Rectangle 61.png";
 
 const ProductPage = () => {
-  const { data } = useContext(ProductContext);
+  const { data, selectedTypeTwo, setSelectedTypeTwo } = useContext(ProductContext);
 
-  const jewelryProducts = useMemo(() => data?.filter((product) => product.category === 'Jewelry'), [data]);
+  const jewelryProducts = useMemo(
+    () => data?.filter((product) => product.category === "Jewelry"),
+    [data]
+  );
 
   const [uniqueTypes, setUniqueTypes] = useState<Set<string>>(new Set());
   const [displayedProducts, setDisplayedProducts] = useState<number>(10);
-  const [selectedType, setSelectedType] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState<string>('');
-  const [sortOption, setSortOption] = useState<string>('');
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [sortOption, setSortOption] = useState<string>("");
 
   useEffect(() => {
     if (jewelryProducts) {
@@ -25,11 +27,9 @@ const ProductPage = () => {
     setDisplayedProducts((prevCount) => prevCount + 6);
   };
 
-  const isLoadMoreDisabled = jewelryProducts ? displayedProducts >= jewelryProducts.length : true;
-
-  const handleTypeClick = (type: string) => {
-    setSelectedType(type);
-  };
+  const isLoadMoreDisabled = jewelryProducts
+    ? displayedProducts >= jewelryProducts.length
+    : true;
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(event.target.value);
@@ -40,36 +40,45 @@ const ProductPage = () => {
   };
 
   const sortedProducts = () => {
-    if (sortOption === 'featured') {
-      console.log('All products:', searchedProducts);
-      console.log(
-        'Featured products:',
-        searchedProducts?.filter((product) => product.isFeatured)
-      );
-
+    if (sortOption === "featured") {
       return searchedProducts?.filter((product) => product.isFeatured);
-    } else if (sortOption === 'new') {
-      return searchedProducts?.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-    } else if (sortOption === 'discount') {
+    } else if (sortOption === "new") {
+      return searchedProducts?.sort(
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+      );
+    } else if (sortOption === "discount") {
       return searchedProducts?.filter((product) => product.isDiscounting);
     }
     return searchedProducts;
   };
 
-  const filteredProducts = selectedType !== null ? jewelryProducts?.filter((product) => product.type === selectedType) : jewelryProducts;
+  const handleTypeClick = (type: string) => {
+    setSelectedTypeTwo(type);
+  };
+
+  const filteredProducts =
+    selectedTypeTwo !== null
+      ? jewelryProducts?.filter((product) => product.type === selectedTypeTwo)
+      : jewelryProducts;
 
   const searchedProducts =
-    searchQuery.trim() !== ''
+    searchQuery.trim() !== ""
       ? filteredProducts?.filter(
           (product) =>
             product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            product.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            (product.type && product.type.toLowerCase().includes(searchQuery.toLowerCase())) ||
+            product.category
+              .toLowerCase()
+              .includes(searchQuery.toLowerCase()) ||
+            (product.type &&
+              product.type.toLowerCase().includes(searchQuery.toLowerCase())) ||
             product.price.toString().includes(searchQuery)
         )
       : filteredProducts;
 
-  const displayedAndSortedProducts = sortedProducts()?.slice(0, displayedProducts);
+  const displayedAndSortedProducts = sortedProducts()?.slice(
+    0,
+    displayedProducts
+  );
 
   return (
     <React.Fragment>
@@ -81,14 +90,31 @@ const ProductPage = () => {
               <h1>Jewelry</h1>
               <div className="span-wrapper">
                 {Array.from(uniqueTypes).map((type, index) => (
-                  <span key={index} onClick={() => handleTypeClick(type)} className={type === selectedType ? 'selected' : ''}>
+                  <span
+                    key={index}
+                    onClick={() => handleTypeClick(type)}
+                    className={type === selectedTypeTwo ? "selected" : ""}
+                  >
                     {type}
                   </span>
                 ))}
               </div>
               <div className="search-sort-wrapper">
-                <input type="search" name="search" id="search" placeholder="Search..." value={searchQuery} onChange={handleSearchChange} />
-                <select title='sort' name="sort" id="sort" onChange={handleSortChange} value={sortOption}>
+                <input
+                  type="search"
+                  name="search"
+                  id="search"
+                  placeholder="Search..."
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                />
+                <select
+                  title="sort"
+                  name="sort"
+                  id="sort"
+                  onChange={handleSortChange}
+                  value={sortOption}
+                >
                   <option value="">Sort: Featured</option>
                   <option value="featured">Featured</option>
                   <option value="new">New</option>

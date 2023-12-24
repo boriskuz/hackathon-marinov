@@ -22,6 +22,8 @@ interface ProductType {
   setFormData: React.Dispatch<React.SetStateAction<FormData>>;
   totalPrice: number;
   setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
+  selectedTypeTwo: string | null;
+  setSelectedTypeTwo: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 export const ProductContext = createContext<ProductType>({
@@ -42,6 +44,8 @@ export const ProductContext = createContext<ProductType>({
   setFormData: () => {},
   totalPrice: 0,
   setTotalPrice: () => {},
+  selectedTypeTwo: null,
+  setSelectedTypeTwo: () => {},
 });
 
 interface Props {
@@ -56,6 +60,8 @@ const ProductContextConstructor: React.FC<Props> = ({ children }) => {
 
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState<number>(0);
+  const [selectedTypeTwo, setSelectedTypeTwo] = useState<string | null>(null);
+  console.log(selectedTypeTwo);
 
   console.log(totalPrice);
 
@@ -87,6 +93,8 @@ const ProductContextConstructor: React.FC<Props> = ({ children }) => {
         setFormData,
         totalPrice,
         setTotalPrice,
+        selectedTypeTwo,
+        setSelectedTypeTwo,
       }}
     >
       {children}
