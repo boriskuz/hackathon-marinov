@@ -3,6 +3,12 @@
 @use "sass:math";
 
 .related-products {
+    img {
+        margin: 2rem 0;
+    }
+    h2 {
+        margin-bottom: 1rem;
+    }
   .related-products-wrapper {
     overflow-x: auto;
     white-space: nowrap;
@@ -14,7 +20,8 @@
         margin-right: 1px;
         .product-card-wrapper {
             img {
-                height: 300px;
+                height: 350px;
+                margin-top: 0;
             }
         }
       }

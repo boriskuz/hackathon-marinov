@@ -29,8 +29,6 @@ const ProductDetailPage = () => {
     return <div>Product not found</div>;
   }
 
-  const isJewelry = product.category === "Jewelry";
-
   const handleSaveForLater = () => {
     setIsSaved(!isSaved);
   };
@@ -95,6 +93,9 @@ const ProductDetailPage = () => {
               </button>
             </div>
           )}
+          <div className="modal">
+            
+          </div>
           <div className="content-three-wrapper">
             <p>{product.description}</p>
           </div>
@@ -142,7 +143,7 @@ const ProductDetailPage = () => {
           </div>
         </div>
       </div>
-      <RelatedProducts category={isJewelry ? "Jewelry" : "Other"} />
+      <RelatedProducts category={product.category} />
     </React.Fragment>
   );
 };

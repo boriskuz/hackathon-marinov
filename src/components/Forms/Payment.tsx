@@ -23,18 +23,15 @@ const Payment = () => {
   const onSubmit: SubmitHandler<FormData> = (data) => {
     console.log(data);
 
-    
     if (
       data.cardNumber &&
       data.cardHolder &&
       data.expirationDate &&
       data.securityCode
     ) {
-      
-      navigate("/processing-payment");
+      navigate("/payment-info");
     }
   };
-
 
   const navigate = useNavigate();
 
@@ -108,15 +105,14 @@ const Payment = () => {
               </div>
             </div>
             <div className="button-wrapper">
-             
-                <button
-                  className="btn-order btn-order-full"
-                  type="submit"
-                  disabled={!isDirty}
-                >
-                  Pay Now
-                </button>
-           
+              <button
+                className="btn-order btn-order-full"
+                type="submit"
+                disabled={!isDirty}
+              >
+                Pay Now
+              </button>
+
               <button className="btn-order btn-order" onClick={handleCancel}>
                 Cancel
               </button>
