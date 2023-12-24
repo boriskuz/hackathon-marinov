@@ -8,6 +8,7 @@ import QuantitySelector from "./sub-components/QuantitySelector";
 import heart from "../../images/heart.svg";
 import fullHeart from "../../images/full-heart.svg";
 import useCart from "../../custom-hooks/useCart";
+import RelatedProducts from "../RelatedProducts";
 
 const ProductDetailPage = () => {
   const { data } = useContext(ProductContext);
@@ -27,6 +28,8 @@ const ProductDetailPage = () => {
     console.error("Product not found");
     return <div>Product not found</div>;
   }
+
+  const isJewelry = product.category === "Jewelry";
 
   const handleSaveForLater = () => {
     setIsSaved(!isSaved);
@@ -80,9 +83,9 @@ const ProductDetailPage = () => {
               </Link>
             </div>
           ) : (
-          //!DA SE DODADE MODAL PO ADD TO CART
-          //!DA SE DODADE MODAL PO ADD TO CART
-            <div className="order"> 
+            //!DA SE DODADE MODAL PO ADD TO CART
+            //!DA SE DODADE MODAL PO ADD TO CART
+            <div className="order">
               <button
                 onClick={handleAddToCart}
                 className="btn-order btn-order-full width-100"
@@ -139,6 +142,7 @@ const ProductDetailPage = () => {
           </div>
         </div>
       </div>
+      <RelatedProducts category={isJewelry ? "Jewelry" : "Other"} />
     </React.Fragment>
   );
 };

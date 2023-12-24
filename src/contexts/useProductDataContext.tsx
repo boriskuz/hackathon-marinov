@@ -61,9 +61,6 @@ const ProductContextConstructor: React.FC<Props> = ({ children }) => {
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [selectedTypeTwo, setSelectedTypeTwo] = useState<string | null>(null);
-  console.log(selectedTypeTwo);
-
-  console.log(totalPrice);
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -74,7 +71,7 @@ const ProductContextConstructor: React.FC<Props> = ({ children }) => {
     address: "",
   });
 
-  console.log(formData);
+  
 
   React.useEffect(() => {
     setData(data);

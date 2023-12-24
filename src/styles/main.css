@@ -823,4 +823,19 @@ a {
 }
 .payments .payments-wrapper form .button-wrapper button:not(:last-child) {
   margin-bottom: 1rem;
+}
+
+.related-products .related-products-wrapper {
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
+}
+.related-products .related-products-wrapper .related-products-content {
+  display: flex;
+}
+.related-products .related-products-wrapper .related-products-content .product-card {
+  margin-right: 1px;
+}
+.related-products .related-products-wrapper .related-products-content .product-card .product-card-wrapper img {
+  height: 300px;
 }/*# sourceMappingURL=main.css.map */

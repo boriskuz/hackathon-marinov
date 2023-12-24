@@ -133,6 +133,7 @@ const ProductPage = () => {
               + Load More
             </button>
           </div>
+          
         </div>
       </div>
     </React.Fragment>

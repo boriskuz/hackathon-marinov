@@ -34,7 +34,7 @@ function App() {
               </Layout>
             }
           />
-          
+
           <Route
             path="/product-page"
             element={
