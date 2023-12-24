@@ -12,6 +12,9 @@ import CartFavoritesProvider from "./contexts/useCartFavoriteContext";
 import { useEffect } from "react";
 import CustomMade from "./pages/CustomMade";
 import Layout from "./components/Layout";
+import Checkout from "./components/Forms/Checkout";
+import Payment from "./components/Forms/Payment";
+import ProcessingPayment from "./components/Forms/ProcessingPayment";
 
 function App() {
   const location = useLocation();
@@ -72,6 +75,9 @@ function App() {
               </Layout>
             }
           />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/payments" element={<Payment />} />
+          <Route path="/processing-payment" element={<ProcessingPayment />} />
         </Routes>
       </CartFavoritesProvider>
     </ProductContextConstructor>

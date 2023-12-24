@@ -14,9 +14,11 @@
     "json-server": "^0.17.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.49.2",
     "react-lottie-player": "^1.5.5",
     "react-router-dom": "^6.21.1",
     "react-slick": "^0.29.0",
+    "react-world-flags": "^1.6.0",
     "sass": "^1.69.5",
     "slick-carousel": "^1.8.1"
   },

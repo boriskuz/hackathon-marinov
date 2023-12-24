@@ -6,6 +6,7 @@ import { CartFavoritesContext } from "../../contexts/useCartFavoriteContext";
 import CartHeader from "./sub-components/CartHeader";
 import CartItem from "./sub-components/CartItem";
 import CartFooter from "./sub-components/CartFooter";
+import Header from "../Header";
 
 const Cart = () => {
   const { data, isLoading } = useContext(ProductContext);
@@ -56,6 +57,7 @@ const Cart = () => {
 
   return (
     <>
+     <Header/>
       <div className="page-container">
         <div className="cart-page">
           <CartHeader />

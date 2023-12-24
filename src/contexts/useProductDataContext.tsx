@@ -2,6 +2,15 @@ import React, { createContext, useState } from "react";
 import useFetch from "../custom-hooks/useFetch";
 import { Product } from "../interfaces";
 
+interface FormData {
+  name: string;
+  email: string;
+  country: string;
+  postalCode: string;
+  city: string;
+  address: string;
+}
+
 interface ProductType {
   data: Product[] | null;
   isLoading: boolean;
@@ -9,6 +18,10 @@ interface ProductType {
   setData: React.Dispatch<React.SetStateAction<Product[] | null>>;
   selectedQuantity: number;
   setSelectedQuantity: React.Dispatch<React.SetStateAction<number>>;
+  formData: FormData;
+  setFormData: React.Dispatch<React.SetStateAction<FormData>>;
+  totalPrice: number;
+  setTotalPrice: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const ProductContext = createContext<ProductType>({
@@ -18,6 +31,17 @@ export const ProductContext = createContext<ProductType>({
   setData: () => null,
   selectedQuantity: 1,
   setSelectedQuantity: () => {},
+  formData: {
+    name: "",
+    email: "",
+    country: "",
+    postalCode: "",
+    city: "",
+    address: "",
+  },
+  setFormData: () => {},
+  totalPrice: 0,
+  setTotalPrice: () => {},
 });
 
 interface Props {
@@ -31,6 +55,20 @@ const ProductContextConstructor: React.FC<Props> = ({ children }) => {
   const [dataState, setData] = React.useState<Product[] | null>(data);
 
   const [selectedQuantity, setSelectedQuantity] = useState(1);
+  const [totalPrice, setTotalPrice] = useState<number>(0);
+
+  console.log(totalPrice);
+
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    country: "",
+    postalCode: "",
+    city: "",
+    address: "",
+  });
+
+  console.log(formData);
 
   React.useEffect(() => {
     setData(data);
@@ -45,6 +83,10 @@ const ProductContextConstructor: React.FC<Props> = ({ children }) => {
         setData,
         selectedQuantity,
         setSelectedQuantity,
+        formData,
+        setFormData,
+        totalPrice,
+        setTotalPrice,
       }}
     >
       {children}
