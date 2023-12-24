@@ -18,11 +18,8 @@ const Homepage = () => {
 
   return (
     <>
-      {loading && (
-        <div style={{ height: '100vh', position: 'relative', marginTop: 60 }}>
-          <Animation path="../src/assets/animations/loading_animation.json" />
-        </div>
-      )}
+      <div className={`animation_homepage_loading ${pageLoaded && 'd-none'}`}>{loading && <Animation path="../src/assets/animations/loading_animation.json" />}</div>
+
       {pageLoaded && (
         <div className="container-fluid">
           <div className="row mt-5 overflow-hidden">
