@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import CartFooter from "../cart-page/sub-components/CartFooter";
 import { Product } from "../../interfaces";
@@ -8,6 +8,7 @@ import FooterCheckout from "./sub-components/FooterCheckout";
 import Header from "../Header";
 import butterFly from "../../images/butterfly.png";
 import { Link } from "react-router-dom";
+import { CartFavoritesContext } from "../../contexts/useCartFavoriteContext";
 
 type FormData = {
   name: string;
@@ -25,16 +26,18 @@ const CheckoutForm: React.FC = () => {
     formState: { errors },
   } = useForm<FormData>();
 
-  const [cartItems, setCartItems] = useState<
+  const { cart, setCart } = useContext(CartFavoritesContext);
+
+  /*   const [cart, setCart] = useState<
     { productId: string; productQuantity: number }[]
-  >([]);
+  >([]); */
 
   const { data, isLoading, formData, setFormData, setTotalPrice } =
     useContext(ProductContext);
 
   useEffect(() => {
     const storedItems = localStorage.getItem("cart");
-    setCartItems(
+    setCart(
       storedItems
         ? (JSON.parse(storedItems) as {
             productId: string;
@@ -42,11 +45,11 @@ const CheckoutForm: React.FC = () => {
           }[])
         : []
     );
-  }, []);
+  }, [setCart]);
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
     console.log("Shipping Details:", data);
-    console.log("Cart Items:", cartItems);
+    console.log("Cart Items:", cart);
   };
 
   const countryOptions = [
@@ -57,7 +60,7 @@ const CheckoutForm: React.FC = () => {
 
   useEffect(() => {
     const storedItems = localStorage.getItem("cart");
-    setCartItems(
+    setCart(
       storedItems
         ? (JSON.parse(storedItems) as {
             productId: string;
@@ -65,14 +68,12 @@ const CheckoutForm: React.FC = () => {
           }[])
         : []
     );
-  }, []);
+  }, [setCart]);
 
   const removeFromCart = (productId: string) => {
-    const updatedItems = cartItems.filter(
-      (item) => item.productId !== productId
-    );
+    const updatedItems = cart.filter((item) => item.productId !== productId);
     localStorage.setItem("cart", JSON.stringify(updatedItems));
-    setCartItems(updatedItems);
+    setCart(updatedItems);
   };
 
   const calculateTotalPrice = () => {
@@ -80,10 +81,10 @@ const CheckoutForm: React.FC = () => {
       return 0;
     }
     const selectedItems = data.filter((item: Product) =>
-      cartItems.some((cartItem) => cartItem.productId === item.id.toString())
+      cart.some((cartItem) => cartItem.productId === item.id.toString())
     );
     const calculatedTotalPrice = selectedItems.reduce((total, item) => {
-      const cartItem = cartItems.find(
+      const cartItem = cart.find(
         (cartitem) => cartitem.productId === item.id.toString()
       );
       if (!item.isDiscounting) {
@@ -93,7 +94,6 @@ const CheckoutForm: React.FC = () => {
       }
     }, 0);
 
-    // Update the total price state
     setTotalPrice(calculatedTotalPrice);
 
     return calculatedTotalPrice;
@@ -214,7 +214,7 @@ const CheckoutForm: React.FC = () => {
                 <div className="loading">Loading...</div>
               ) : (
                 <React.Fragment>
-                  {cartItems.length === 0 ? (
+                  {cart.length === 0 ? (
                     <div className="cart-empty">
                       <h1>Your cart is empty</h1>
                     </div>
@@ -223,13 +223,13 @@ const CheckoutForm: React.FC = () => {
                       {data &&
                         data
                           .filter((item: Product) =>
-                            cartItems.some(
+                            cart.some(
                               (cartItem) =>
                                 cartItem.productId === item.id.toString()
                             )
                           )
                           .map((item) => {
-                            const cartItem = cartItems.find(
+                            const cartItem = cart.find(
                               (ci) => ci.productId === item.id.toString()
                             );
                             return (
@@ -242,16 +242,25 @@ const CheckoutForm: React.FC = () => {
                             );
                           })}
                       <CartFooter total={calculateTotalPrice()} />
+                      <div className="order-list-footer order-list-shipping">
+                        <span>Shipping</span>
+                        <span>&euro;&nbsp;10</span>
+                      </div>
                       <div className="total">
                         <p>Total:</p>
-                        <p> ${calculateTotalPrice()}</p>
+
+                        <p> ${calculateTotalPrice() + 10}</p>
                       </div>
                       <div className="gift-code-card-wrapper">
                         <label htmlFor="discountCode">
                           <img src={butterFly} alt="butterfly-icon" />
                         </label>
-                        <select id="discountCode" name="discountCode">
-                          <option value="" disabled selected>
+                        <select
+                          id="discountCode"
+                          name="discountCode"
+                          defaultValue=""
+                        >
+                          <option value="" disabled>
                             I have a Discount Code / Gift Card
                           </option>
                           <option value="gift-card-one">Gift card = $50</option>

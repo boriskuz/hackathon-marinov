@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { Product } from "../../../interfaces"; // Import the Product type
+import { Product } from "../../../interfaces";
 
 interface CartItemProps {
-  item: Product; // Use the Product type for the item prop
+  item: Product;
   cartItem: { productId: string; productQuantity: number } | undefined;
   removeFromCart: (productId: string) => void;
 }
