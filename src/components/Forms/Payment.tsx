@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import PaymentHeader from "./sub-components/PaymentHeader";
 import FooterCheckout from "./sub-components/FooterCheckout";
 import PaymentInformations from "./sub-components/PaymentInformations";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface FormData {
   cardNumber: string;
