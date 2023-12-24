@@ -16,6 +16,7 @@ import Checkout from './components/Forms/Checkout';
 import Payment from './components/Forms/Payment';
 import ProcessingPayment from './components/Forms/ProcessingPayment';
 import PaymentInfo from './pages/PaymentInfo';
+import OurStoryPage from './pages/our-story';
 
 function App() {
   const location = useLocation();
@@ -32,6 +33,15 @@ function App() {
             element={
               <Layout>
                 <Homepage />
+              </Layout>
+            }
+          />
+
+          <Route
+            path="/our-story"
+            element={
+              <Layout>
+                <OurStoryPage />
               </Layout>
             }
           />
