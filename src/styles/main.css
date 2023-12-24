@@ -49,8 +49,16 @@ a {
   text-decoration: none;
 }
 
+.homepage {
+  padding-top: 5rem;
+}
+
 .card-text-holder {
   width: 200px;
+}
+
+.button-homepage {
+  color: #9b4923 !important;
 }
 
 .color-brown {
@@ -145,6 +153,23 @@ a {
 }
 .navbar-toggler:focus {
   box-shadow: none;
+}
+
+.logo-wrapper {
+  transition: opacity 0.3s ease, height 0.5s ease;
+}
+.logo-wrapper .logo-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-wrapper .logo-icon img {
+  width: 60px;
+}
+
+.logo-wrapper.hidden {
+  opacity: 0;
+  height: 0;
 }
 
 .product-page {

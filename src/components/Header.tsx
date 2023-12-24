@@ -1,7 +1,28 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import CartIcon from "./Misc/CartIcon";
+import logoScroll from "../images/logo_scroll.png";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      console.log("Scroll Position:", scrollPosition);
+
+      const scrollThreshold = 200;
+      setIsScrolled(scrollPosition > scrollThreshold);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const collapseNavbar = () => {
     const navbarToggler = document.querySelector(
       ".navbar-toggler"
@@ -13,6 +34,7 @@ const Header = () => {
       navbarToggler.click();
     }
   };
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <div className="container-fluid spacing">
@@ -27,13 +49,22 @@ const Header = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <Link
-          to="/"
-          onClick={collapseNavbar}
-          className="navbar-brand text-uppercase header-title"
-        >
-          Marinov
-        </Link>
+        <div className="header-wrapper">
+          <div className={`logo-wrapper ${isScrolled ? "hidden" : ""}`}>
+            {location.pathname === "/" && (
+              <div className="logo-icon">
+                <img src={logoScroll} alt="logo-icon" />
+              </div>
+            )}
+          </div>
+          <Link
+            to="/"
+            onClick={collapseNavbar}
+            className="navbar-brand text-uppercase header-title"
+          >
+            Marinov
+          </Link>
+        </div>
 
         <CartIcon />
 

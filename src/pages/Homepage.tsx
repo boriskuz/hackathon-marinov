@@ -24,7 +24,7 @@ const Homepage = () => {
         </div>
       )}
       {pageLoaded && (
-        <div className="container-fluid">
+        <div className="container-fluid homepage">
           <div className="row mt-5 overflow-hidden">
             <div className="col">
               <div className="cards-homepage">

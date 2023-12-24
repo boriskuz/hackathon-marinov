@@ -2,6 +2,10 @@
 @use '../abstracts/variables' as var;
 @use 'sass:math';
 
+.homepage {
+  padding-top: 5rem;
+}
+
 .card-text-holder {
   width: 200px;
 }
