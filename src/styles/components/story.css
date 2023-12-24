@@ -20,13 +20,13 @@
 
 .story-top {
     position: absolute;
-    top: 750px;
+    top: 770px;
     color: #FBFAF8;
     padding-right: 20%;
 }
 .story-bottom {
     position: absolute;
-    top: 1620px;
+    top: 1660px;
     color: #FBFAF8; 
     text-align: right;
     padding-left: 15%;
@@ -35,11 +35,19 @@
     position: absolute;
     width: 272px;
     height: 350px;
-    top: 250px;
+    top: 280px;
     left: 56%;
     rotate: -36.77deg;
     z-index: 9999999998;
-}  
+} 
+.belt {
+    position: absolute;
+    min-width: 450.95px;
+    height: 243px;
+    top: 2170px;
+    left: 13%;
+    rotate: -28deg;
+}
 .story-img {
     width: 736.06px;
     height: 424px;
@@ -48,7 +56,7 @@
     background-size: cover;
     background-image: url('../../public/images/OurStoryPage/Ohrid_razglednica_1913.png');
     position: absolute;
-    top: 45%;
+    top: 50%;
 }
 .story-img::after {
     content: '';
@@ -69,4 +77,35 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('../../public/images/OurStoryPage/copper aging.jpg');
+}
+.slave {
+    width: 235px;
+    height: 172px;
+    margin-left: 40px;
+}
+.helmet {
+    width: 401px;
+    height: 485px;
+    position: absolute;
+    z-index: 9999998;
+    top: 2815px;
+    left: 25%;
+}
+.ring {
+    width: 350px;
+    height: 267px;
+    margin-left: 20%;
+}
+.bracelet {
+    width: 372px;
+    height: 452px;
+    top: 4200px;
+    left: 40px;
+    rotate: 24deg;
+    position: absolute;
+}
+
+.slider img {
+    width: 100%;
+    max-height: 30vh;
 }
