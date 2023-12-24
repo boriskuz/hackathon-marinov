@@ -23,12 +23,111 @@ img {
   width: 100%;
 }
 
+.col {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+body {
+  background-color: #fbfaf8;
+  font-family: "Amulya", sans-serif;
+  color: #3c1913 !important;
+}
+
+a {
+  color: #3c1913 !important;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 500;
+  font-family: "Cabinet Grotesk", sans-serif;
+}
+
 a {
   text-decoration: none;
 }
 
-#homePage {
-  background-color: grey;
+.card-text-holder {
+  width: 200px;
+}
+
+.color-brown {
+  color: #3c1913 !important;
+}
+
+.button-cs {
+  color: #9b4923;
+  font-size: 16px;
+  padding: 12px 24px 12px 24px;
+  font-weight: 700;
+  border: 2px solid #9b4923;
+  border-radius: 16px 0 16px 0;
+  background-color: #fbfaf8;
+}
+
+.button-cs-brown {
+  color: #fbfaf8;
+  font-size: 16px;
+  padding: 12px 24px 12px 24px;
+  font-weight: 700;
+  border: 2px solid #fbfaf8;
+  border-radius: 16px 0 16px 0;
+  background-color: #3c1913;
+}
+
+.d-light {
+  font-weight: 300;
+  font-size: 32px;
+}
+
+.bg-butterfly {
+  background-image: url("../../../public/images/Home-Page/bg_spiral_butterfly_home_mobile.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 250px;
+  padding-bottom: 250px;
+}
+
+.razglednica {
+  background-image: url("../../../public/images/Home-Page/Ohrid_razglednica_1913.png");
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 300px;
+}
+
+.old-town {
+  background-image: url("../../../public/images/Home-Page/ohrid_old_town.jpg");
+  padding-top: 1000px;
+  background-size: cover;
+  background-position: center;
+}
+.old-town-text {
+  background-color: #fbfaf8;
+  opacity: 85%;
+  padding: 16px 24px 24px 24px;
+  margin-bottom: 16px;
+  border-radius: 40px 0 40px 0;
+}
+
+.navbar {
+  background-color: #fbfaf8 !important;
+}
+.navbar .header-title {
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 32px;
+}
+.navbar .spacing {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.navbar-toggler {
+  border: none;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
 }
 
 .product-page {
@@ -112,12 +211,15 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 1rem;
 }
 .product-page .product-page-wrapper .load-more-button-container button {
   border: none;
   background-color: transparent;
   color: #3c1913;
   max-width: 150px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .product-card .product-card-wrapper img {
@@ -149,7 +251,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .product-detail-page .product-detail-wrapper .content-two-wrapper .heart-icon-wrapper {
   display: flex;
@@ -199,6 +301,9 @@ a {
 .product-detail-page .product-detail-wrapper .content-five-wrapper .care-maintenance-small {
   font-size: 13px;
 }
+.product-detail-page .product-detail-wrapper .btn-order {
+  margin-bottom: 1rem;
+}
 
 .quantity-selector {
   display: flex;
@@ -237,4 +342,157 @@ a {
 }
 .quantity-selector .quantity-number {
   font-size: 16px;
+}
+
+.cart-page {
+  padding: 1rem;
+  padding-bottom: 5rem;
+  padding-top: 74px;
+}
+.cart-page p {
+  color: #3c1913;
+  font-weight: 400;
+}
+.cart-page > * {
+  margin-bottom: 1rem;
+}
+.cart-page h1 {
+  text-align: left;
+  margin: 2rem 0;
+  font-size: 2.8125rem;
+  font-weight: 700;
+  font-size: 2.8125rem;
+  color: #3c1913;
+}
+.cart-page .cart-page-heading {
+  margin: 1.8rem 0;
+}
+.cart-page .order-list .order-list-heading,
+.cart-page .order-list .order-list-footer {
+  padding: 0.3rem 0;
+  display: flex;
+  justify-content: space-between;
+  color: #3c1913;
+  font-size: 1.125rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+.cart-page .order-list .order-list-heading {
+  border-bottom: 1px solid #3c1913;
+}
+.cart-page .order-list .order-list-footer {
+  border-top: 1px solid #3c1913;
+}
+.cart-page .order-list .cart-item {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: flex-start;
+}
+.cart-page .order-list .cart-item > *:not(:last-child) {
+  margin-right: 1rem;
+}
+.cart-page .order-list .cart-item > *:not(:last-child):last-child {
+  margin-right: 0;
+}
+.cart-page .order-list .cart-item .cart-item-image {
+  height: 72px;
+  min-width: 72px;
+  max-width: 72px;
+  overflow: hidden;
+}
+.cart-page .order-list .cart-item .cart-item-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.cart-page .order-list .cart-item .cart-item-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cart-page .order-list .cart-item .cart-item-name p {
+  color: #3c1913;
+  margin: 0;
+}
+.cart-page .order-list .cart-item .cart-item-price {
+  margin-left: auto;
+}
+.cart-page .order-list .cart-empty {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 80vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-image: url(public/images/home-Page/bg_spiral_butterfly_home_mobile.svg);
+}
+.cart-page .order-list h1 {
+  max-width: 350px;
+}
+.cart-page .checkout {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+}
+.cart-page .checkout > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.btn-order {
+  border: 2px solid #3c1913;
+  border-top-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  background-color: #fbfaf8;
+  min-height: 50px;
+  padding: 12px 24px;
+  color: #3c1913;
+  font-weight: 700;
+  transition: all 0.2s ease-in-out;
+}
+.btn-order:hover {
+  background-color: #3c1913;
+  color: #fbfaf8;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2509803922);
+}
+.btn-order:focus {
+  color: #fbfaf8;
+  background-color: #3c1913;
+  box-shadow: 6px 5px 1px -1px rgba(0, 0, 0, 0.2509803922);
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.btn-order-full {
+  color: #fbfaf8;
+  background-color: #3c1913;
+}
+.btn-order-full:hover {
+  color: #3c1913;
+  background-color: #fbfaf8;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2509803922);
+}
+.btn-order-full:focus {
+  color: #3c1913;
+  background-color: #fbfaf8;
+  box-shadow: 6px 5px 1px -1px rgba(0, 0, 0, 0.2509803922);
+}
+
+.btn-cart-remove {
+  border: none;
+  border-bottom: 2px solid #9b4923;
+  color: #9b4923;
+  background-color: #fbfaf8;
+  padding: 0;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.125rem;
+  color: #3c1913;
+  font-weight: 700;
+  margin: 5rem 0;
 }/*# sourceMappingURL=main.css.map */

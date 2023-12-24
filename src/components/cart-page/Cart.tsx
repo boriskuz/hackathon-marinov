@@ -1,18 +1,11 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { ProductContext } from "../../contexts/useProductDataContext";
 import { Product } from "../../interfaces";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
-  const { data, isLoading } = useContext(ProductContext);
-  const [cartItemIds, setCartItemIds] = useState<number[]>([]);
-
-  useEffect(() => {
-    const tempCartItemIds = [1, 2, 3];
-    localStorage.setItem("cartItemIds", JSON.stringify(tempCartItemIds));
-    const storedIds = localStorage.getItem("cartItemIds");
-    setCartItemIds(storedIds ? (JSON.parse(storedIds) as number[]) : []);
-  }, []);
+  const { data, isLoading, setCartItemIds, cartItemIds } =
+    useContext(ProductContext);
 
   const removeFromCart = (itemId: number) => {
     const updatedItemIds = cartItemIds.filter((id) => id !== itemId);
@@ -24,12 +17,15 @@ const Cart = () => {
     if (!data) {
       return 0;
     }
-    const selectedItems = data.filter((item: Product) => cartItemIds.includes(item.id));
+
+    const selectedItems = data.filter((item: Product) =>
+      cartItemIds.includes(item.id)
+    );
     return selectedItems.reduce((total, item) => total + item.price, 0);
   };
 
   return (
-    <>
+    <React.Fragment>
       <div className="page-container">
         <div className="cart-page">
           <div className="cart-page-header">
@@ -44,16 +40,18 @@ const Cart = () => {
             {isLoading ? (
               <div className="loading">Loading...</div>
             ) : (
-              <>
+              <React.Fragment>
                 {cartItemIds.length === 0 ? (
                   <div className="cart-empty">
                     <h1>Your cart is empty</h1>
                   </div>
                 ) : (
-                  <>
+                  <React.Fragment>
                     {data &&
                       data
-                        .filter((item: Product) => cartItemIds.includes(item.id))
+                        .filter((item: Product) =>
+                          cartItemIds.includes(item.id)
+                        )
                         .map((item) => (
                           <div key={item.id} className="cart-item">
                             <div className="cart-item-image">
@@ -85,19 +83,19 @@ const Cart = () => {
                         calculate shipping costs.
                       </p>
                       <Link to={"/checkout"}>
-                      <button className="btn-order btn-order-full width-100">
-                        Checkout
-                      </button>
+                        <button className="btn-order btn-order-full width-100">
+                          Checkout
+                        </button>
                       </Link>
                     </div>
-                  </>
+                  </React.Fragment>
                 )}
-              </>
+              </React.Fragment>
             )}
           </div>
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 };
 

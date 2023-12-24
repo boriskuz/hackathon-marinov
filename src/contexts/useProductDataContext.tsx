@@ -1,4 +1,9 @@
-import React, { createContext, useState } from "react";
+import React, {
+  SetStateAction,
+  createContext,
+  useEffect,
+  useState,
+} from "react";
 import useFetch from "../custom-hooks/useFetch";
 import { Product } from "../interfaces";
 
@@ -9,6 +14,8 @@ interface ProductType {
   setData: React.Dispatch<React.SetStateAction<Product[] | null>>;
   selectedQuantity: number;
   setSelectedQuantity: React.Dispatch<React.SetStateAction<number>>;
+  cartItemIds: number[];
+  setCartItemIds: React.Dispatch<SetStateAction<number[]>>;
 }
 
 export const ProductContext = createContext<ProductType>({
@@ -18,6 +25,8 @@ export const ProductContext = createContext<ProductType>({
   setData: () => null,
   selectedQuantity: 1,
   setSelectedQuantity: () => {},
+  setCartItemIds: () => null,
+  cartItemIds: [],
 });
 
 interface Props {
@@ -29,6 +38,13 @@ const ProductContextConstructor: React.FC<Props> = ({ children }) => {
     "http://localhost:5001/products"
   );
   const [dataState, setData] = React.useState<Product[] | null>(data);
+
+  const [cartItemIds, setCartItemIds] = useState<number[]>([]);
+
+  useEffect(() => {
+    const storedIds = localStorage.getItem("cartItemIds");
+    setCartItemIds(storedIds ? (JSON.parse(storedIds) as number[]) : []);
+  }, []);
 
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
@@ -45,6 +61,8 @@ const ProductContextConstructor: React.FC<Props> = ({ children }) => {
         setData,
         selectedQuantity,
         setSelectedQuantity,
+        cartItemIds,
+        setCartItemIds,
       }}
     >
       {children}

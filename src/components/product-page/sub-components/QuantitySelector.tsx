@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext} from "react";
+import { ProductContext } from "../../../contexts/useProductDataContext";
 
 interface QuantitySelectorProps {
   maxQuantity: number;
@@ -9,7 +10,8 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
   maxQuantity,
   onQuantityChange,
 }) => {
-  const [selectedQuantity, setSelectedQuantity] = useState(1);
+  
+  const {selectedQuantity, setSelectedQuantity} = useContext(ProductContext)
 
   const handleIncrement = () => {
     const newQuantity =

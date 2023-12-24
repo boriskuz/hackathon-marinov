@@ -78,11 +78,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      margin-bottom: 1rem;
+
       button {
         border: none;
         background-color: transparent;
         color: var.$brown-color;
         max-width: 150px;
+        font-weight: bold;
+        cursor: pointer;
       }
     }
   }
