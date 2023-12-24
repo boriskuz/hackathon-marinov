@@ -69,5 +69,22 @@
         font-size: 13px;
       }
     }
+    .order{
+      margin-bottom: 1.5rem;
+    }
+  }
+  .out-of-stock{
+    &>*{
+      margin-bottom: 1rem;
+    }
+    margin-bottom: 2rem;
+    h6{
+      text-align: center;
+      font-weight: bold;
+    }
+    button:not(:last-child){
+      opacity: 0.5;
+    }
   }
 }
+
