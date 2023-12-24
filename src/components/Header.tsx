@@ -1,7 +1,7 @@
-import { Link, useLocation } from "react-router-dom";
-import CartIcon from "./Misc/CartIcon";
-import logoScroll from "../images/logo_scroll.png";
-import { useEffect, useState } from "react";
+import { Link, useLocation } from 'react-router-dom';
+import CartIcon from './Misc/CartIcon';
+import logoScroll from '../images/logo_scroll.png';
+import { useEffect, useState } from 'react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -10,27 +10,21 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      console.log("Scroll Position:", scrollPosition);
 
       const scrollThreshold = 200;
       setIsScrolled(scrollPosition > scrollThreshold);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   const collapseNavbar = () => {
-    const navbarToggler = document.querySelector(
-      ".navbar-toggler"
-    ) as HTMLElement;
-    if (
-      navbarToggler &&
-      window.getComputedStyle(navbarToggler).display !== "none"
-    ) {
+    const navbarToggler = document.querySelector('.navbar-toggler') as HTMLElement;
+    if (navbarToggler && window.getComputedStyle(navbarToggler).display !== 'none') {
       navbarToggler.click();
     }
   };
@@ -50,18 +44,14 @@ const Header = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="header-wrapper">
-          <div className={`logo-wrapper ${isScrolled ? "hidden" : ""}`}>
-            {location.pathname === "/" && (
+          <div className={`logo-wrapper ${isScrolled ? 'hidden' : ''}`}>
+            {location.pathname === '/' && (
               <div className="logo-icon">
                 <img src={logoScroll} alt="logo-icon" />
               </div>
             )}
           </div>
-          <Link
-            to="/"
-            onClick={collapseNavbar}
-            className="navbar-brand text-uppercase header-title"
-          >
+          <Link to="/" onClick={collapseNavbar} className="navbar-brand text-uppercase header-title">
             Marinov
           </Link>
         </div>
@@ -76,38 +66,22 @@ const Header = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                onClick={collapseNavbar}
-                to="/product-page"
-                className="nav-link "
-              >
+              <Link onClick={collapseNavbar} to="/product-page" className="nav-link ">
                 Jewelry
               </Link>
             </li>
             <li className="nav-item ">
-              <Link
-                onClick={collapseNavbar}
-                to="/product-page-home-decor"
-                className="nav-link "
-              >
+              <Link onClick={collapseNavbar} to="/product-page-home-decor" className="nav-link ">
                 Home Decor
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                onClick={collapseNavbar}
-                to="/custom-orders"
-                className="nav-link "
-              >
+              <Link onClick={collapseNavbar} to="/custom-orders" className="nav-link ">
                 Custom Orders
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                onClick={collapseNavbar}
-                to="/our-story"
-                className="nav-link "
-              >
+              <Link onClick={collapseNavbar} to="/our-story" className="nav-link ">
                 Our story
               </Link>
             </li>
@@ -117,20 +91,12 @@ const Header = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                onClick={collapseNavbar}
-                to="/contact"
-                className="nav-link "
-              >
+              <Link onClick={collapseNavbar} to="/contact" className="nav-link ">
                 Contact
               </Link>
             </li>
             <li className="nav-item">
-              <Link
-                onClick={collapseNavbar}
-                to="/profile"
-                className="nav-link "
-              >
+              <Link onClick={collapseNavbar} to="/profile" className="nav-link ">
                 Profile
               </Link>
             </li>

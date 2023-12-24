@@ -3,6 +3,7 @@ import HomepageCard from '../components/HomepageCard';
 import Testimonial from '../components/Testimonial';
 import Animation from '../components/Animation';
 import { LanguageContext } from '../contexts/useLanguageContext';
+import { Link } from 'react-router-dom';
 
 const Homepage = () => {
   const [loading, setLoading] = useState(true);
@@ -76,7 +77,9 @@ const Homepage = () => {
                     ? 'Со текот на времето, нашето фамилно претпријатие расте и се развива, се адаптира на променливите тенденции, додека истовремено останува коренато во нашето наследство.'
                     : 'As time unfolds, our family business has been growing and evolving, adapting to the changing tides while remaining rooted in our heritage.'}
                 </p>
-                <button className="button-cs-brown">{language === 'mk' ? 'Види Нашата Приказна' : 'See Our Story'}</button>
+                <Link to="/our-story" className="button-cs-brown our-story-color">
+                  {language === 'mk' ? 'Види Нашата Приказна' : 'See Our Story'}
+                </Link>
                 <img className="px-5 mt-5" src="../../public/images/Home-Page/butterfly-dots.png" alt="" />
               </div>
             </div>
