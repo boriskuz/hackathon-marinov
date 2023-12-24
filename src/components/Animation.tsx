@@ -2,7 +2,7 @@ import Lottie from 'react-lottie-player';
 
 interface AnimationProps {
   path: string;
-  right: string;
+  right?: string;
 }
 
 const Animation: React.FC<AnimationProps> = ({ path, right }: AnimationProps) => {
