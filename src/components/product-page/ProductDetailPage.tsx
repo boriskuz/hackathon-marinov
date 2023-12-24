@@ -81,8 +81,6 @@ const ProductDetailPage = () => {
               </Link>
             </div>
           ) : (
-            //!DA SE DODADE MODAL PO ADD TO CART
-            //!DA SE DODADE MODAL PO ADD TO CART
             <div className="order">
               <button
                 onClick={handleAddToCart}

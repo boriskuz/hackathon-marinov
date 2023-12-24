@@ -19,7 +19,7 @@ const Homepage = () => {
   return (
     <>
       {loading && (
-        <div style={{ height: '100vh', position: 'relative', marginTop: 60 }}>
+        <div style={{ height: "100vh", position: "relative", marginTop: 60 }}>
           <Animation path="../src/assets/animations/loading_animation.json" />
         </div>
       )}
@@ -60,7 +60,10 @@ const Homepage = () => {
           <div className="row bg-butterfly">
             <div className="col">
               <h1>Always unique, never exactly the same!</h1>
-              <p>Each piece is handcrafted with meticulous attention to detail in our workshop in Ohrid.</p>
+              <p>
+                Each piece is handcrafted with meticulous attention to detail in
+                our workshop in Ohrid.
+              </p>
             </div>
           </div>
           <div className="row">
@@ -68,9 +71,17 @@ const Homepage = () => {
             <div className="col ">
               <div>
                 <h1>Over a century old tradition</h1>
-                <p>As time unfolds, our family business has been growing and evolving, adapting to the changing tides while remaining rooted in our heritage.</p>
+                <p>
+                  As time unfolds, our family business has been growing and
+                  evolving, adapting to the changing tides while remaining
+                  rooted in our heritage.
+                </p>
                 <button className="button-cs-brown">See Our Story</button>
-                <img className="px-5 mt-5" src="../../public/images/Home-Page/butterfly-dots.png" alt="" />
+                <img
+                  className="px-5 mt-5"
+                  src="../../public/images/Home-Page/butterfly-dots.png"
+                  alt=""
+                />
               </div>
             </div>
           </div>
@@ -78,7 +89,10 @@ const Homepage = () => {
             <div className="col">
               <div className=" old-town-text ">
                 <h1>Visit Our Shop</h1>
-                <p>Come meet us at the heart of Ohrid’s old town and experience the art of craftsmanship firsthand!</p>
+                <p>
+                  Come meet us at the heart of Ohrid’s old town and experience
+                  the art of craftsmanship firsthand!
+                </p>
                 <button className="button-cs-brown">Contact Details</button>
               </div>
             </div>
@@ -91,12 +105,26 @@ const Homepage = () => {
           earrings, and every time I wear them, I receive compliments. The unique designs and the warmth of the staff make Marinov an unforgettable experience. Highly recommended!”`}
                 person="- Elsa Johansson, Sweden"
               />
-              <img className="py-5" style={{ width: 40, margin: 'auto' }} src="../../public/images/Home-Page/leaf_divider.svg" alt="" />
+              <img
+                className="py-5"
+                style={{ width: 40, margin: "auto" }}
+                src="../../public/images/Home-Page/leaf_divider.svg"
+                alt=""
+              />
               <Testimonial
                 text={`I recently purchased a copper necklace from Marinov, and I couldn't be happier with my choice. The craftsmanship is impeccable, and the attention to detail is evident in every link. The necklace not only complements my style perfectly but also garners admiration wherever I go. Marinov's jewelry isn't just an accessory; it's a work of art that adds elegance to any outfit. I'm genuinely impressed and will definitely be returning for more pieces!`}
                 person="- Sofia Oliveira, Portugal"
               />
-              <img className="py-5" style={{ width: 40, margin: 'auto', transform: 'rotate(180deg)' }} src="../../public/images/Home-Page/leaf_divider.svg" alt="" />
+              <img
+                className="py-5"
+                style={{
+                  width: 40,
+                  margin: "auto",
+                  transform: "rotate(180deg)",
+                }}
+                src="../../public/images/Home-Page/leaf_divider.svg"
+                alt=""
+              />
               <Testimonial
                 text={`Marinov's copper products reflect the essence of Ohrid's rich heritage. I ordered a custom-made copper lamp for my home, and it exceeded my expectations. The team at Marinov went above and beyond to ensure every detail was perfect. Their dedication to preserving tradition while creating modern masterpieces is truly commendable. I am immensely satisfied with my purchase!`}
                 person="- Matthias Schneider, Austria"

@@ -2,13 +2,15 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "../styles/components/_footer.scss";
 import { ProductContext } from "../contexts/useProductDataContext";
+import marinovGreen from "../images/logotype.png";
+import whatsappIcon from "../images/whatsapp.png";
 
 const Footer: React.FC = () => {
   const { setSelectedTypeTwo } = useContext(ProductContext);
 
-   const handleTypeClick = (type: string) => {
-     setSelectedTypeTwo(type);
-   };
+  const handleTypeClick = (type: string) => {
+    setSelectedTypeTwo(type);
+  };
   return (
     <footer>
       <div className="container-fluid footer">
@@ -22,7 +24,7 @@ const Footer: React.FC = () => {
           <div className="d-flex flex-column">
             <div className="col-11 mx-3">
               <img
-                src="../../public/images/Home-Page/logotype.svg"
+                src={marinovGreen}
                 alt="logotype"
                 className="mt-4 mb-5 w-50"
               />
@@ -111,10 +113,7 @@ const Footer: React.FC = () => {
                       />
                     </div>
                     <div className="col-3 social-icons">
-                      <img
-                        src="../../public/images/Icons/whatsapp.svg"
-                        alt="icon-whatsapp"
-                      />
+                      <img src={whatsappIcon} alt="icon-whatsapp" />
                     </div>
                   </div>
                   <p>Privacy Policy</p>

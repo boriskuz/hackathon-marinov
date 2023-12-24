@@ -26,6 +26,7 @@ function App() {
   return (
     <ProductContextConstructor>
       <CartFavoritesProvider>
+        
         <Routes>
           <Route
             path="/"
