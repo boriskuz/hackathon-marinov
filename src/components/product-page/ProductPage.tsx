@@ -88,7 +88,7 @@ const ProductPage = () => {
               </div>
               <div className="search-sort-wrapper">
                 <input type="search" name="search" id="search" placeholder="Search..." value={searchQuery} onChange={handleSearchChange} />
-                <select name="sort" id="sort" onChange={handleSortChange} value={sortOption}>
+                <select title='sort' name="sort" id="sort" onChange={handleSortChange} value={sortOption}>
                   <option value="">Sort: Featured</option>
                   <option value="featured">Featured</option>
                   <option value="new">New</option>

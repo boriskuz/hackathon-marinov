@@ -1,30 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
+import { Product } from "../../../interfaces";
 
 interface QuantitySelectorProps {
-  maxQuantity: number;
-  onQuantityChange: (quantity: number) => void;
+  product: Product;
+  setProductQuantity: React.Dispatch<React.SetStateAction<number>>;
+  productQuantity: number;
 }
 
 const QuantitySelector: React.FC<QuantitySelectorProps> = ({
-  maxQuantity,
-  onQuantityChange,
+  setProductQuantity,
+  productQuantity,
+  product,
 }) => {
-  const [selectedQuantity, setSelectedQuantity] = useState(1);
-
-  const handleIncrement = () => {
-    const newQuantity =
-      selectedQuantity + 1 <= maxQuantity
-        ? selectedQuantity + 1
-        : selectedQuantity;
-    setSelectedQuantity(newQuantity);
-    onQuantityChange(newQuantity);
-  };
 
   const handleDecrement = () => {
-    const newQuantity =
-      selectedQuantity - 1 >= 1 ? selectedQuantity - 1 : selectedQuantity;
-    setSelectedQuantity(newQuantity);
-    onQuantityChange(newQuantity);
+    if (productQuantity > 1) {
+      setProductQuantity(productQuantity - 1);
+    }
+  };
+
+  const handleIncrement = () => {
+    if (productQuantity < product.quantity) {
+      setProductQuantity(productQuantity + 1);
+    }
   };
 
   return (
@@ -32,7 +30,7 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
       <button className="quantity-btn left-btn" onClick={handleDecrement}>
         <span className="decrement">-</span>
       </button>
-      <span className="quantity-number ">{selectedQuantity}</span>
+      <span className="quantity-number ">{productQuantity}</span>
       <button className="quantity-btn right-btn" onClick={handleIncrement}>
         <span className="increment">+</span>
       </button>

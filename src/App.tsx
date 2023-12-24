@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 import ProductContextConstructor from './contexts/useProductDataContext';
 import './styles/main.scss';
@@ -12,11 +12,19 @@ import ProductPageOne from './components/product-page/ProductPageOne';
 import ProductDetailPage from './components/product-page/ProductDetailPage';
 import Header from './components/Header';
 import Faq from './pages/Faq';
+import CartFavoritesProvider from './contexts/useCartFavoriteContext';
+import { useEffect } from 'react';
 import CustomMade from './pages/CustomMade';
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [location.pathname]);
   return (
     <ProductContextConstructor>
+      <CartFavoritesProvider>
       <Header />
       <Routes>
         <Route path="/" element={<Homepage />} />
@@ -28,6 +36,7 @@ function App() {
         <Route path="/custom-orders" element={<CustomMade />} />
       </Routes>
       <Footer />
+      </CartFavoritesProvider>
     </ProductContextConstructor>
   );
 }

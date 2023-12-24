@@ -2,40 +2,63 @@ import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../../contexts/useProductDataContext";
 import { Product } from "../../interfaces";
 import { Link } from "react-router-dom";
+import { CartFavoritesContext } from "../../contexts/useCartFavoriteContext";
+import CartHeader from "./sub-components/CartHeader";
+import CartItem from "./sub-components/CartItem";
+import CartFooter from "./sub-components/CartFooter";
 
 const Cart = () => {
   const { data, isLoading } = useContext(ProductContext);
-  const [cartItemIds, setCartItemIds] = useState<number[]>([]);
+  const [cartItems, setCartItems] = useState<
+    { productId: string; productQuantity: number }[]
+  >([]);
+  const { setCart } = useContext(CartFavoritesContext);
 
   useEffect(() => {
-    const tempCartItemIds = [1, 2, 3];
-    localStorage.setItem("cartItemIds", JSON.stringify(tempCartItemIds));
-    const storedIds = localStorage.getItem("cartItemIds");
-    setCartItemIds(storedIds ? (JSON.parse(storedIds) as number[]) : []);
+    const storedItems = localStorage.getItem("cart");
+    setCartItems(
+      storedItems
+        ? (JSON.parse(storedItems) as {
+            productId: string;
+            productQuantity: number;
+          }[])
+        : []
+    );
   }, []);
 
-  const removeFromCart = (itemId: number) => {
-    const updatedItemIds = cartItemIds.filter((id) => id !== itemId);
-    localStorage.setItem("cartItemIds", JSON.stringify(updatedItemIds));
-    setCartItemIds(updatedItemIds);
+  const removeFromCart = (productId: string) => {
+    const updatedItems = cartItems.filter(
+      (item) => item.productId !== productId
+    );
+    localStorage.setItem("cart", JSON.stringify(updatedItems));
+    setCartItems(updatedItems);
+    setCart(updatedItems);
   };
 
   const calculateTotalPrice = () => {
     if (!data) {
       return 0;
     }
-    const selectedItems = data.filter((item: Product) => cartItemIds.includes(item.id));
-    return selectedItems.reduce((total, item) => total + item.price, 0);
+    const selectedItems = data.filter((item: Product) =>
+      cartItems.some((cartItem) => cartItem.productId === item.id.toString())
+    );
+    return selectedItems.reduce((total, item) => {
+      const cartItem = cartItems.find(
+        (cartitem) => cartitem.productId === item.id.toString()
+      );
+      if (!item.isDiscounting) {
+        return total + item.price * (cartItem?.productQuantity || 1);
+      } else {
+        return total + item.salePrice * (cartItem?.productQuantity || 1);
+      }
+    }, 0);
   };
 
   return (
     <>
       <div className="page-container">
         <div className="cart-page">
-          <div className="cart-page-header">
-            <h1>Your Cart</h1>
-            <button className="btn-order">Continue shopping</button>
-          </div>
+          <CartHeader />
           <div className="order-list">
             <div className="order-list-heading">
               <span>Product</span>
@@ -45,7 +68,7 @@ const Cart = () => {
               <div className="loading">Loading...</div>
             ) : (
               <>
-                {cartItemIds.length === 0 ? (
+                {cartItems.length === 0 ? (
                   <div className="cart-empty">
                     <h1>Your cart is empty</h1>
                   </div>
@@ -53,41 +76,35 @@ const Cart = () => {
                   <>
                     {data &&
                       data
-                        .filter((item: Product) => cartItemIds.includes(item.id))
-                        .map((item) => (
-                          <div key={item.id} className="cart-item">
-                            <div className="cart-item-image">
-                              <img src={item.images[0]} alt={item.title} />
-                            </div>
-                            <div className="cart-item-name">
-                              <p>{item.title}</p>
-                              <div>
-                                <button
-                                  className="btn-cart-remove"
-                                  onClick={() => removeFromCart(item.id)}
-                                >
-                                  Remove
-                                </button>
-                              </div>
-                            </div>
-                            <p className="cart-item-price">
-                              &euro;&nbsp;{item.price}
-                            </p>
-                          </div>
-                        ))}
-                    <div className="order-list-footer">
-                      <span>Subtotal</span>
-                      <span>&euro;&nbsp;{calculateTotalPrice()}</span>
-                    </div>
+                        .filter((item: Product) =>
+                          cartItems.some(
+                            (cartItem) =>
+                              cartItem.productId === item.id.toString()
+                          )
+                        )
+                        .map((item) => {
+                          const cartItem = cartItems.find(
+                            (ci) => ci.productId === item.id.toString()
+                          );
+                          return (
+                            <CartItem
+                              key={item.id}
+                              item={item}
+                              cartItem={cartItem}
+                              removeFromCart={removeFromCart}
+                            />
+                          );
+                        })}
+                    <CartFooter total={calculateTotalPrice()} />
                     <div className="checkout">
                       <p>
                         * Shipping costs not included. Proceed to checkout to
                         calculate shipping costs.
                       </p>
                       <Link to={"/checkout"}>
-                      <button className="btn-order btn-order-full width-100">
-                        Checkout
-                      </button>
+                        <button className="btn-order btn-order-full width-100">
+                          Checkout
+                        </button>
                       </Link>
                     </div>
                   </>
