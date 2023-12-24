@@ -2,13 +2,17 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "../styles/components/_footer.scss";
 import { ProductContext } from "../contexts/useProductDataContext";
+import { LanguageContext } from "../contexts/useLanguageContext";
 
 const Footer: React.FC = () => {
   const { setSelectedTypeTwo } = useContext(ProductContext);
 
-   const handleTypeClick = (type: string) => {
-     setSelectedTypeTwo(type);
-   };
+  const { language, setLanguage } = useContext(LanguageContext);
+
+  const handleTypeClick = (type: string) => {
+    setSelectedTypeTwo(type);
+  };
+  {console.log(language)}
   return (
     <footer>
       <div className="container-fluid footer">
@@ -28,7 +32,10 @@ const Footer: React.FC = () => {
               />
               <div className="d-flex flex-row justify-content-between mb-3">
                 <h3 className="text-uppercase font-weight-bold">jewelry</h3>
-                <h3>EN / MK</h3>
+                <h3>
+                  <span onClick={() => setLanguage("en")}>EN</span>/
+                  <span onClick={() => setLanguage("mk")}>MK</span>
+                </h3>
               </div>
               <div className="col-12 mr-auto ml-auto">
                 <div className="d-flex flex-column justify-content-start">
