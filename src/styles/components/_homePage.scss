@@ -6,6 +6,10 @@
   width: 200px;
 }
 
+.button-homepage {
+  color: var.$orange-color !important;
+}
+
 .color-brown {
   color: var.$brown-color !important;
 }
@@ -54,9 +58,9 @@
     border-radius: 40px 0 40px 0;
   }
 }
-.cart-container{
+.cart-container {
   position: relative;
-  .cart-icon{
+  .cart-icon {
     padding: 1px;
     text-align: center;
     position: absolute;
@@ -67,6 +71,6 @@
     color: var.$white-color;
     border-radius: 100%;
     width: 15px;
-    height:15px;
+    height: 15px;
   }
 }
