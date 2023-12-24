@@ -1,19 +1,10 @@
-import React from 'react'
-import "../styles/components/story.css"
+import '../styles/components/_story.scss'
 import ImageSlider from '../components/product-page/sub-components/ImageSlider';
-// import '../../public/images/OurStoryPage/process carousel 1.jpg'
 
 const OurStoryPage = () => {
 
   const images = [ '../../public/images/OurStoryPage/process carousel 1.jpg', '../../public/images/OurStoryPage/process carousel 2.jpg', '../../public/images/OurStoryPage/process carousel 3.jpg', '../../public/images/OurStoryPage/process carousel 4.jpg', '../../public/images/OurStoryPage/process carousel 5.jpg']
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-  
+
   return (
     <>
       
@@ -49,12 +40,22 @@ const OurStoryPage = () => {
               <h2 className='story-text text-left' style={{paddingRight: '20%'}}>Peek Into Our Process</h2>
               <div className='slider mt-2 mb-5 p-0'>
                 <ImageSlider images={images} title=''/>
-                <div className='mt-5'>
-                  <p>Crafting copper jewelry is a meticulous art, requiring precision, honed skill, and a deep commitment to excellence. Every step, from shaping the raw copper to adding intricate details, demands careful attention. It's more than creating a piece of jewelry; it's a dedication to the art, passion, and expertise that define our work. Each finished piece speaks of our commitment to quality, promising a distinctive and beautifully crafted copper jewelry experience for you.</p>
+                <div className='mt-5 px-3'>
+                  <p>Crafting copper jewelry is a meticulous art, requiring precision, honed skill, and a deep commitment to excellence. Every step, from shaping the raw copper to adding intricate details, demands careful attention.</p>
+                  <p className="my-4">It's more than creating a piece of jewelry; it's a dedication to the art, passion, and expertise that define our work.</p>
+                  <p>Each finished piece speaks of our commitment to quality, promising a distinctive and beautifully crafted copper jewelry experience for you.</p>
                 </div>
               </div>
-
-  
+              <h1 className='story-text text-left mt-5 mb-4'>Certified Craftsmanship</h1>
+                <p className="mb-4">Through the years, our business and skilled craftsmen have achieved numerous certifications, showcasing our commitment to exceptional craftsmanship. We have actively engaged in international workshops, demonstrating our craft and learning from various traditions.</p>
+              <div className="wall">
+                <p className="wall-text">These experiences reflect our continuous journey of skill enhancement and passion for the art, reinforcing our dedication to quality.</p>
+                <img src="../../public/images/OurStoryPage/certificate 1.jpg" alt="certificate" className="certificate-1"/>
+                <img src="../../public/images/OurStoryPage/certificate 2.jpg" alt="certificate" className="certificate-2"/>
+                <img src="../../public/images/OurStoryPage/certificate 3.jpg" alt="certificate" className="certificate-3"/>
+                <img src="../../public/images/OurStoryPage/certificate 4.jpg" alt="certificate" className="certificate-4"/>
+                <img src="../../public/images/OurStoryPage/certificate 5.jpg" alt="certificate" className="certificate-5"/>
+              </div>
         </div>
       </div>
     </>
