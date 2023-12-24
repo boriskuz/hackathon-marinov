@@ -1,27 +1,28 @@
-import { Route, Routes, useLocation } from "react-router-dom";
-import ProductContextConstructor from "./contexts/useProductDataContext";
-import "./styles/main.scss";
-import Homepage from "./pages/Homepage";
-import Cart from "./components/cart-page/Cart";
-import ProductPage from "./components/product-page/ProductPage";
-import ProductPageOne from "./components/product-page/ProductPageOne";
-import ProductDetailPage from "./components/product-page/ProductDetailPage";
-import Faq from "./pages/Faq";
-import CartFavoritesProvider from "./contexts/useCartFavoriteContext";
-import { useEffect } from "react";
-import CustomMade from "./pages/CustomMade";
-import Layout from "./components/Layout";
-import Checkout from "./components/Forms/Checkout";
-import Payment from "./components/Forms/Payment";
-import ProcessingPayment from "./components/Forms/ProcessingPayment";
-import PaymentInfo from "./pages/PaymentInfo";
-import LanguageContext from "./contexts/useLanguageContext";
+import { Route, Routes, useLocation } from 'react-router-dom';
+import ProductContextConstructor from './contexts/useProductDataContext';
+import './styles/main.scss';
+import Homepage from './pages/Homepage';
+import Cart from './components/cart-page/Cart';
+import ProductPage from './components/product-page/ProductPage';
+import ProductPageOne from './components/product-page/ProductPageOne';
+import ProductDetailPage from './components/product-page/ProductDetailPage';
+import Faq from './pages/Faq';
+import CartFavoritesProvider from './contexts/useCartFavoriteContext';
+import { useEffect } from 'react';
+import CustomMade from './pages/CustomMade';
+import Layout from './components/Layout';
+import Checkout from './components/Forms/Checkout';
+import Payment from './components/Forms/Payment';
+import ProcessingPayment from './components/Forms/ProcessingPayment';
+import PaymentInfo from './pages/PaymentInfo';
+import LanguageContext from './contexts/useLanguageContext';
+import OurStoryPage from './pages/our-story';
 
 function App() {
   const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location.pathname]);
 
   return (
@@ -34,6 +35,15 @@ function App() {
               element={
                 <Layout>
                   <Homepage />
+                </Layout>
+              }
+            />
+
+            <Route
+              path="/our-story"
+              element={
+                <Layout>
+                  <OurStoryPage />
                 </Layout>
               }
             />

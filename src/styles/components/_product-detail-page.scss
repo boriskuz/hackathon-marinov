@@ -1,6 +1,6 @@
-@use "../abstracts/mixins" as mix;
-@use "../abstracts/variables" as var;
-@use "sass:math";
+@use '../abstracts/mixins' as mix;
+@use '../abstracts/variables' as var;
+@use 'sass:math';
 
 .product-detail-page {
   overflow: hidden;
@@ -69,22 +69,62 @@
         font-size: 13px;
       }
     }
-    .order{
+    .order {
       margin-bottom: 1.5rem;
     }
   }
-  .out-of-stock{
-    &>*{
+  .out-of-stock {
+    & > * {
       margin-bottom: 1rem;
     }
     margin-bottom: 2rem;
-    h6{
+    h6 {
       text-align: center;
       font-weight: bold;
     }
-    button:not(:last-child){
+    button:not(:last-child) {
       opacity: 0.5;
     }
   }
 }
 
+.img-wrapper {
+  position: relative;
+}
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.slick-prev {
+  background-color: transparent !important;
+  left: 10px !important;
+  &::before {
+    content: '⟨' !important;
+    color: rgba(255, 255, 255, 0.357) !important;
+    font-size: x-large !important;
+    font-weight: bold !important;
+  }
+}
+
+.slick-next {
+  background-color: transparent !important;
+  right: 10px !important;
+
+  &::before {
+    content: '⟩' !important;
+    color: rgba(255, 255, 255, 0.357) !important;
+    font-size: x-large !important;
+    font-weight: bold !important;
+  }
+}
